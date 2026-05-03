@@ -18,7 +18,6 @@
             min-height: 100vh;
         }
 
-        /* FLOATING FLOWERS */
         #flowers-container {
             position: fixed;
             top: 0;
@@ -73,7 +72,6 @@
             overflow-x: hidden;
         }
 
-        /* TITLE */
         .title-section {
             margin-bottom: 30px;
         }
@@ -85,21 +83,22 @@
             color: #d94e6b;
             text-shadow: 2px 2px 8px rgba(217,78,107,0.2);
             margin-bottom: 0;
-            word-break: keep-all;
+            white-space: nowrap;       /* ensures single line */
+            overflow: hidden;
+            text-overflow: ellipsis;    /* just in case on tiny screens */
             line-height: 1.2;
         }
 
         .love-text {
-            font-size: clamp(20px, 5vw, 28px);
-            color: #d94e6b;
-            opacity: 0.85;
-            font-style: italic;
-            font-weight: 300;
+            font-size: clamp(24px, 6vw, 32px);
+            font-weight: 700;          /* thicker */
+            color: #fff;               /* stands out on pink */
+            text-shadow: 1px 1px 6px rgba(0,0,0,0.25);
+            margin-top: 8px;
             letter-spacing: 2px;
-            margin-top: 5px;
+            font-style: italic;
         }
 
-        /* CANDLES ROW */
         .candle-area {
             margin: 20px 0 25px;
         }
@@ -130,7 +129,6 @@
             margin-top: 8px;
         }
 
-        /* 18!! SURPRISE */
         .big-18 {
             display: none;
             font-size: 70px;
@@ -151,7 +149,6 @@
             100% { transform: scale(1); opacity: 1; }
         }
 
-        /* BUTTONS */
         .buttons {
             display: grid;
             grid-template-columns: repeat(2, 220px);
@@ -320,7 +317,6 @@
                 <p class="love-text">σαγαπω</p>
             </div>
 
-            <!-- CANDLE ZONE -->
             <div class="candle-area" id="candleZone">
                 <div class="candle-row" id="candleRow">
                     <span class="candle-stick">🕯️</span>
@@ -342,7 +338,6 @@
         </div>
     </div>
 
-    <!-- LITTLE MOMENTS -->
     <div id="moments" class="section">
         <button class="back" onclick="showSection('home')">← back</button>
         <div class="text-box">
@@ -350,7 +345,6 @@
         </div>
     </div>
 
-    <!-- OUR CHAOS -->
     <div id="chaos" class="section">
         <button class="back" onclick="showSection('home')">← back</button>
         <h1 style="text-align:center; font-size:50px;">our chaos</h1>
@@ -370,7 +364,6 @@
         </div>
     </div>
 
-    <!-- THINGS I LOVE ABOUT YOU -->
     <div id="things" class="section">
         <button class="back" onclick="showSection('home')">← back</button>
         <div class="text-box">
@@ -378,7 +371,6 @@
         </div>
     </div>
 
-    <!-- ONE LAST SURPRISE -->
     <div id="last" class="section">
         <button class="back" onclick="showSection('home')">← back</button>
         <div class="text-box">
@@ -387,7 +379,6 @@
     </div>
 
     <script>
-        // ---- PAGE NAVIGATION ----
         function showSection(id) {
             document.querySelectorAll('.section').forEach(section => {
                 section.classList.remove('active');
@@ -395,7 +386,6 @@
             document.getElementById(id).classList.add('active');
         }
 
-        // ---- MUSIC TOGGLE ----
         const music = document.getElementById('bg-music');
         const musicBtn = document.getElementById('music-toggle');
 
@@ -409,20 +399,15 @@
             }
         }
 
-        // ---- CANDLE PRESS → 18!! + CONFETTI ----
         const candleRow = document.getElementById('candleRow');
         const big18 = document.getElementById('big18');
         const candlePressText = document.querySelector('.candle-press-text');
 
         function lightCandles() {
-            // hide candles row and press text
             candleRow.style.display = 'none';
             candlePressText.style.display = 'none';
-
-            // show 18!!
             big18.classList.add('show');
 
-            // confetti blast
             confetti({
                 particleCount: 150,
                 spread: 80,
@@ -447,26 +432,20 @@
             }, 200);
         }
 
-        // add click event to each candle stick
         document.querySelectorAll('.candle-stick').forEach(candle => {
             candle.addEventListener('click', lightCandles);
         });
 
-        // ---- FLOATING LOTUS ----
         const container = document.getElementById('flowers-container');
-        const numberOfFlowers = 15;
-
-        for (let i = 0; i < numberOfFlowers; i++) {
+        for (let i = 0; i < 15; i++) {
             const img = document.createElement('img');
             img.src = '4AD78C84-7F97-47E6-BF33-939AB322D938.jpeg';
             img.alt = 'pixel lotus';
             img.classList.add('lotus-img');
-
             img.style.left = Math.random() * 100 + '%';
             img.style.top = Math.random() * 100 + '%';
             img.style.animationDuration = (Math.random() * 3 + 3) + 's';
             img.style.animationDelay = Math.random() * 5 + 's';
-
             container.appendChild(img);
         }
     </script>
