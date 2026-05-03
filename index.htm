@@ -1,202 +1,287 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>happy birthday ♡</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>happy birthday ♡</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
-<style>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: #FFD1DC;  /* baby pink */
+            color: #2d2d2d;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
 
-body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    background: #e6cfd3;
-    color: #2d2d2d;
-    overflow-x: hidden;
-}
+        /* MAIN SCREEN */
+        .section {
+            display: none;
+            padding: 40px 20px;
+            min-height: 100vh;
+            animation: fadeIn 0.4s ease;
+        }
 
-/* MAIN SCREEN */
-.section {
-    display: none;
-    padding: 40px 20px;
-    min-height: 100vh;
-}
+        .active {
+            display: block;
+        }
 
-.active {
-    display: block;
-}
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
-.container {
-    text-align: center;
-    margin-top: 100px;
-}
+        .container {
+            text-align: center;
+            margin-top: 100px;
+        }
 
-h1 {
-    font-size: 60px;
-    margin-bottom: 60px;
-}
+        h1 {
+            font-size: 60px;
+            margin-bottom: 60px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.05);
+        }
 
-.buttons {
-    display: grid;
-    grid-template-columns: repeat(2, 200px);
-    gap: 30px;
-    justify-content: center;
-}
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(2, 220px);
+            gap: 30px;
+            justify-content: center;
+        }
 
-.btn {
-    background: linear-gradient(145deg, #e6aeb5, #d999a1);
-    border: none;
-    padding: 18px;
-    border-radius: 40px;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    transition: 0.3s;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-}
+        .btn {
+            background: linear-gradient(145deg, #FFB3C6, #FF8FAB);
+            border: none;
+            padding: 20px 18px;
+            border-radius: 50px;
+            color: white;
+            font-size: 16px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 10px 20px rgba(255, 143, 171, 0.3);
+        }
 
-.btn:hover {
-    transform: translateY(-5px);
-}
+        .btn:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 15px 25px rgba(255, 143, 171, 0.4);
+        }
 
-/* BACK BUTTON */
-.back {
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    background: #d999a1;
-    color: white;
-    border: none;
-    padding: 10px 18px;
-    border-radius: 20px;
-    cursor: pointer;
-}
+        /* BACK BUTTON */
+        .back {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: #FF8FAB;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(255, 143, 171, 0.3);
+            z-index: 10;
+            transition: 0.3s;
+        }
 
-/* CHAOS GALLERY */
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-    margin-top: 40px;
-}
+        .back:hover {
+            background: #FF7A9E;
+            transform: scale(1.05);
+        }
 
-.card {
-    background: #f2d4d8;
-    padding: 15px;
-    border-radius: 20px;
-    text-align: center;
-}
+        /* CHAOS GALLERY */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+            padding: 0 10px;
+        }
 
-.card img {
-    width: 100%;
-    border-radius: 15px;
-}
+        .card {
+            background: #FDE2E4;
+            padding: 12px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(255, 143, 171, 0.15);
+            transition: transform 0.3s;
+        }
 
-.caption {
-    margin-top: 10px;
-    font-size: 14px;
-}
+        .card:hover {
+            transform: translateY(-5px);
+        }
 
-/* TEXT SECTIONS */
-.text-box {
-    max-width: 600px;
-    margin: 100px auto;
-    text-align: center;
-    line-height: 1.8;
-    font-size: 18px;
-}
+        .card img {
+            width: 100%;
+            border-radius: 15px;
+            min-height: 150px;
+            background: #FFD1DC;  /* fallback background */
+            object-fit: cover;
+            display: block;
+        }
 
-</style>
+        /* if image is missing, show a soft placeholder */
+        .card img[src=""],
+        .card img:not([src]),
+        .card img[src=""] {
+            background: #FFD1DC;
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #FF8FAB;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        .caption {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #555;
+            min-height: 20px;
+            font-weight: 500;
+        }
+
+        /* TEXT SECTIONS */
+        .text-box {
+            max-width: 600px;
+            margin: 100px auto;
+            text-align: center;
+            line-height: 1.8;
+            font-size: 18px;
+            background: rgba(255, 255, 255, 0.4);
+            padding: 30px;
+            border-radius: 30px;
+            backdrop-filter: blur(5px);
+        }
+
+        /* Responsive buttons */
+        @media (max-width: 500px) {
+            .buttons {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            h1 {
+                font-size: 40px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<!-- HOME -->
-<div id="home" class="section active">
-    <div class="container">
-        <h1>happy birthday 💘</h1>
+    <!-- HOME -->
+    <div id="home" class="section active">
+        <div class="container">
+            <h1>HAPPY BIRTHDAY 💘</h1>
 
-        <div class="buttons">
-            <button class="btn" onclick="showSection('moments')">little moments</button>
-            <button class="btn" onclick="showSection('chaos')">our chaos</button>
-            <button class="btn" onclick="showSection('things')">things about u</button>
-            <button class="btn" onclick="showSection('last')">one last thing</button>
+            <div class="buttons">
+                <button class="btn" onclick="showSection('moments')">LITTLE MOMENTS</button>
+                <button class="btn" onclick="showSection('chaos')">OUR CHAOS</button>
+                <button class="btn" onclick="showSection('things')">THINGS ABOUT U</button>
+                <button class="btn" onclick="showSection('last')">ONE LAST THING</button>
+            </div>
         </div>
     </div>
-</div>
 
-<!-- LITTLE MOMENTS -->
-<div id="moments" class="section">
-    <button class="back" onclick="showSection('home')">back</button>
-
-    <div class="text-box">
-        <p>
-        i don’t think you realise how many small things stick with me.<br><br>
-        the random conversations, the dumb jokes, the way nothing ever feels awkward with you.<br><br>
-        it’s not even big moments — it’s just… everything in between.
-        </p>
-    </div>
-</div>
-
-<!-- CHAOS -->
-<div id="chaos" class="section">
-    <button class="back" onclick="showSection('home')">back</button>
-
-    <h1 style="text-align:center;">our chaos</h1>
-
-    <div class="gallery">
-
-        <!-- REPLACE THESE WITH REAL SCREENSHOTS -->
-        <div class="card">
-            <img src="images/chat1.jpg">
-            <div class="caption">this made no sense but it was funny</div>
+    <!-- LITTLE MOMENTS -->
+    <div id="moments" class="section">
+        <button class="back" onclick="showSection('home')">← back</button>
+        <div class="text-box">
+            <!-- Add your own text here -->
         </div>
+    </div>
 
-        <div class="card">
-            <img src="images/chat2.jpg">
-            <div class="caption">still not over this</div>
+    <!-- OUR CHAOS -->
+    <div id="chaos" class="section">
+        <button class="back" onclick="showSection('home')">← back</button>
+        <h1 style="text-align:center;">our chaos</h1>
+
+        <div class="gallery">
+            <!-- 12 image slots – replace the src with your real screenshots -->
+            <div class="card">
+                <img src="images/chat1.jpg" alt="memory">
+                <div class="caption"></div>
+            </div>
+            <div class="card">
+                <img src="images/chat2.jpg" alt="memory">
+                <div class="caption"></div>
+            </div>
+            <div class="card">
+                <img src="images/chat3.jpg" alt="memory">
+                <div class="caption"></div>
+            </div>
+            <div class="card">
+                <img src="images/chat4.jpg" alt="memory">
+                <div class="caption"></div>
+            </div>
+            <div class="card">
+                <img src="images/chat5.jpg" alt="memory">
+                <div class="caption"></div>
+            </div>
+            <div class="card">
+                <img src="images/chat6.jpg" alt="memory">
+                <div class="caption"></div>
+            </div>
+            <div class="card">
+                <img src="images/chat7.jpg" alt="memory">
+                <div class="caption"></div>
+            </div>
+            <div class="card">
+                <img src="images/chat8.jpg" alt="memory">
+                <div class="caption"></div>
+            </div>
+            <div class="card">
+                <img src="images/chat9.jpg" alt="memory">
+                <div class="caption"></div>
+            </div>
+            <div class="card">
+                <img src="images/chat10.jpg" alt="memory">
+                <div class="caption"></div>
+            </div>
+            <div class="card">
+                <img src="images/chat11.jpg" alt="memory">
+                <div class="caption"></div>
+            </div>
+            <div class="card">
+                <img src="images/chat12.jpg" alt="memory">
+                <div class="caption"></div>
+            </div>
         </div>
-
     </div>
-</div>
 
-<!-- THINGS ABOUT U -->
-<div id="things" class="section">
-    <button class="back" onclick="showSection('home')">back</button>
-
-    <div class="text-box">
-        <p>
-        you make things feel lighter without trying.<br><br>
-        you notice more than you admit.<br><br>
-        and somehow you manage to be both calm and chaotic at the same time.<br><br>
-        it’s a weird combination — but it works.
-        </p>
+    <!-- THINGS ABOUT U -->
+    <div id="things" class="section">
+        <button class="back" onclick="showSection('home')">← back</button>
+        <div class="text-box">
+            <!-- Write your thoughts here -->
+        </div>
     </div>
-</div>
 
-<!-- LAST -->
-<div id="last" class="section">
-    <button class="back" onclick="showSection('home')">back</button>
-
-    <div class="text-box">
-        <p>
-        anyway… happy 18th.<br><br>
-        big year, apparently.<br><br>
-        i just hope it’s a good one for you — you deserve that much at least.
-        </p>
+    <!-- ONE LAST THING -->
+    <div id="last" class="section">
+        <button class="back" onclick="showSection('home')">← back</button>
+        <div class="text-box">
+            <!-- Your final message -->
+        </div>
     </div>
-</div>
 
-<script>
-function showSection(id) {
-    document.querySelectorAll('.section').forEach(section => {
-        section.classList.remove('active');
-    });
-    document.getElementById(id).classList.add('active');
-}
-</script>
+    <script>
+        function showSection(id) {
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(id).classList.add('active');
+        }
+    </script>
 
 </body>
 </html>
