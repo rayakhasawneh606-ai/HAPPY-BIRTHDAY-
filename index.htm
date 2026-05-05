@@ -3,21 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HAPPY BIRTHDAY ♡</title>
+    <title>happy birthday ♡</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <!-- Aesthetic font combo -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Raleway:wght@300;500;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
     <style>
         body {
             margin: 0;
-            font-family: 'Poppins', sans-serif;
-            background: #FFD1DC;
+            font-family: 'Raleway', sans-serif;
+            background: #FFD1DC;  /* baby pink */
             color: #2d2d2d;
             overflow-x: hidden;
             min-height: 100vh;
         }
 
+        /* FLOATING FLOWERS */
         #flowers-container {
             position: fixed;
             top: 0;
@@ -77,11 +79,12 @@
         }
 
         h1 {
-            font-size: clamp(30px, 8vw, 65px);  /* smaller max */
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(32px, 8vw, 64px);
             font-weight: 700;
             letter-spacing: 2px;
-            color: #c24b5c;  /* tad darker pink */
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+            color: #e87d8c;  /* new, much prettier dusty rose */
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.08);
             margin-bottom: 0;
             white-space: nowrap;
             overflow: hidden;
@@ -92,17 +95,18 @@
         .love-text {
             font-size: clamp(24px, 6vw, 32px);
             font-weight: 700;
-            color: #000;  /* black text */
+            color: #000;  /* black as requested */
             text-shadow: 1px 1px 6px rgba(0,0,0,0.1);
             margin-top: 8px;
             letter-spacing: 2px;
             font-style: italic;
+            font-family: 'Raleway', sans-serif;
         }
 
+        /* ---- CANDLES COMMENTED OUT (ready to be added back) ----
         .candle-area {
             margin: 20px 0 25px;
         }
-
         .candle-row {
             display: flex;
             justify-content: center;
@@ -110,16 +114,13 @@
             font-size: 40px;
             transition: opacity 0.5s ease;
         }
-
         .candle-stick {
             cursor: pointer;
             transition: transform 0.2s;
         }
-
         .candle-stick:hover {
             transform: scale(1.2);
         }
-
         .candle-press-text {
             font-size: 12px;
             font-weight: 600;
@@ -128,7 +129,6 @@
             text-transform: uppercase;
             margin-top: 8px;
         }
-
         .big-18 {
             display: none;
             font-size: 70px;
@@ -137,17 +137,16 @@
             text-shadow: 0 0 15px white;
             animation: popIn 0.6s ease;
         }
-
         .big-18.show {
             display: block;
             animation: popIn 0.6s ease;
         }
-
         @keyframes popIn {
             0% { transform: scale(0); opacity: 0; }
             80% { transform: scale(1.2); opacity: 1; }
             100% { transform: scale(1); opacity: 1; }
         }
+        ---- END OF CANDLE CSS ---- */
 
         .buttons {
             display: grid;
@@ -174,6 +173,7 @@
             box-shadow: 0 10px 20px rgba(255, 143, 171, 0.3);
             position: relative;
             overflow: visible;
+            font-family: 'Raleway', sans-serif;
         }
 
         .btn:hover {
@@ -203,6 +203,7 @@
             box-shadow: 0 5px 15px rgba(255, 143, 171, 0.3);
             z-index: 10;
             transition: 0.3s;
+            font-family: 'Raleway', sans-serif;
         }
 
         .back:hover {
@@ -288,6 +289,7 @@
             backdrop-filter: blur(5px);
             position: relative;
             z-index: 1;
+            font-family: 'Raleway', sans-serif;
         }
 
         @media (max-width: 600px) {
@@ -313,10 +315,11 @@
     <div id="home" class="section active">
         <div class="container">
             <div class="title-section">
-                <h1>HAPPY BIRTHDAY 💘</h1>
+                <h1>HAPPY BIRTHDAY ♡ </h1>
                 <p class="love-text">σαγαπω</p>
             </div>
 
+            <!-- CANDLES AREA (commented out – you can uncomment when ready) 
             <div class="candle-area" id="candleZone">
                 <div class="candle-row" id="candleRow">
                     <span class="candle-stick">🕯️</span>
@@ -328,6 +331,7 @@
                 <div class="candle-press-text">press here</div>
                 <div id="big18" class="big-18">18!!</div>
             </div>
+            -->
 
             <div class="buttons">
                 <button class="btn" onclick="showSection('moments')"><span class="swan">🦢</span>our little moments</button>
@@ -399,6 +403,7 @@
             }
         }
 
+        /* ---- CANDLE LOGIC COMMENTED OUT ----
         const candleRow = document.getElementById('candleRow');
         const big18 = document.getElementById('big18');
         const candlePressText = document.querySelector('.candle-press-text');
@@ -435,6 +440,7 @@
         document.querySelectorAll('.candle-stick').forEach(candle => {
             candle.addEventListener('click', lightCandles);
         });
+        ---- END OF CANDLE LOGIC ---- */
 
         const container = document.getElementById('flowers-container');
         for (let i = 0; i < 15; i++) {
