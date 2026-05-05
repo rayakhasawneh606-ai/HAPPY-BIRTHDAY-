@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>happy birthday ♡</title>
 
+    <!-- Aesthetic font combo -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Raleway:wght@300;500;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
@@ -16,8 +17,10 @@
             color: #2d2d2d;
             overflow-x: hidden;
             min-height: 100vh;
+            cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><text y='18' font-size='18'>❤️</text></svg>") 12 12, auto;
         }
 
+        /* FLOATING FLOWERS CONTAINER */
         #flowers-container {
             position: fixed;
             top: 0;
@@ -35,15 +38,39 @@
             height: auto;
             opacity: 0.35;
             image-rendering: pixelated;
-            animation-name: float;
-            animation-iteration-count: infinite;
-            animation-timing-function: ease-in-out;
+            animation: float 4s ease-in-out infinite, twinkle 3s ease-in-out infinite;
+        }
+
+        /* Sparkle overlay (tiny floating stars) */
+        .sparkle {
+            position: absolute;
+            font-size: 20px;
+            opacity: 0.6;
+            animation: floatSparkle 2.5s ease-in-out infinite;
+            pointer-events: none;
         }
 
         @keyframes float {
             0% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-12px) rotate(3deg); }
+            50% { transform: translateY(-15px) rotate(3deg); }
             100% { transform: translateY(0px) rotate(0deg); }
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.7; }
+        }
+
+        @keyframes floatSparkle {
+            0% { transform: translateY(0px) scale(0.8); opacity: 0.4; }
+            50% { transform: translateY(-12px) scale(1.2); opacity: 0.9; }
+            100% { transform: translateY(0px) scale(0.8); opacity: 0.4; }
+        }
+
+        /* Pulsing glow on title */
+        @keyframes softGlow {
+            0%, 100% { text-shadow: 1px 1px 4px rgba(0,0,0,0.08), 0 0 10px #ffe6ea; }
+            50% { text-shadow: 1px 1px 4px rgba(0,0,0,0.08), 0 0 20px #ffb3c6; }
         }
 
         .section {
@@ -64,7 +91,7 @@
 
         .container {
             text-align: center;
-            margin-top: 50px;
+            margin-top: 80px;
             position: relative;
             z-index: 1;
             width: 100%;
@@ -73,7 +100,7 @@
         }
 
         .title-section {
-            margin-bottom: 50px;  /* more breathing room */
+            margin-bottom: 30px;
         }
 
         h1 {
@@ -82,7 +109,7 @@
             font-weight: 700;
             letter-spacing: 2px;
             color: #e87d8c;
-            text-shadow: 1px 1px 4px rgba(0,0,0,0.08);
+            animation: softGlow 3s ease-in-out infinite;
             margin-bottom: 0;
             white-space: nowrap;
             overflow: hidden;
@@ -90,30 +117,26 @@
             line-height: 1.2;
         }
 
-        .love-text {
-            font-size: clamp(24px, 6vw, 32px);
-            font-weight: 700;
-            color: #000;
-            text-shadow: 1px 1px 6px rgba(0,0,0,0.1);
-            margin-top: 8px;
-            letter-spacing: 2px;
-            font-style: italic;
-        }
+        /* No subtext – removed love-text */
+
+        /* ---- CANDLES (commented out, ready for later) ----
+        .candle-area { ... }
+        ---- END OF CANDLE CSS ---- */
 
         .buttons {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 25px;
-            margin-top: 10px;
-            z-index: 1;
+            display: grid;
+            grid-template-columns: repeat(2, 220px);
+            gap: 30px;
+            justify-content: center;
             position: relative;
+            z-index: 1;
+            margin-top: 120px;   /* pushed further down for pleasing spacing */
         }
 
         .btn {
             background: linear-gradient(145deg, #FFB3C6, #FF8FAB);
             border: none;
-            padding: 20px 40px;
+            padding: 20px 18px;
             border-radius: 50px;
             color: white;
             font-size: 16px;
@@ -125,13 +148,12 @@
             box-shadow: 0 10px 20px rgba(255, 143, 171, 0.3);
             position: relative;
             overflow: visible;
-            width: 260px;
-            text-align: center;
+            font-family: 'Raleway', sans-serif;
         }
 
         .btn:hover {
             transform: translateY(-5px) scale(1.02);
-            box-shadow: 0 15px 25px rgba(255, 143, 171, 0.4);
+            box-shadow: 0 15px 25px rgba(255, 143, 171, 0.4), 0 0 20px #ffb3c6;
         }
 
         .swan {
@@ -156,6 +178,7 @@
             box-shadow: 0 5px 15px rgba(255, 143, 171, 0.3);
             z-index: 10;
             transition: 0.3s;
+            font-family: 'Raleway', sans-serif;
         }
 
         .back:hover {
@@ -241,24 +264,32 @@
             backdrop-filter: blur(5px);
             position: relative;
             z-index: 1;
+            font-family: 'Raleway', sans-serif;
         }
 
         @media (max-width: 600px) {
-            .btn {
-                width: 220px;
+            .buttons {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                margin-top: 80px;
             }
         }
     </style>
 </head>
 <body>
 
-    <div id="flowers-container"></div>
+    <!-- FLOATING ASSETS CONTAINER -->
+    <div id="flowers-container">
+        <!-- Lotus images will be injected here -->
+    </div>
 
+    <!-- BACKGROUND MUSIC -->
     <audio id="bg-music" loop preload="auto">
         <source src="champagne-coast.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
 
+    <!-- MUSIC TOGGLE -->
     <button id="music-toggle" class="music-btn" onclick="toggleMusic()">🎵</button>
 
     <!-- HOME -->
@@ -266,11 +297,14 @@
         <div class="container">
             <div class="title-section">
                 <h1>HAPPY BIRTHDAY ❤️</h1>
-                <p class="love-text">σαγαπω</p>
+                <!-- "σαγαπω" removed as requested -->
             </div>
 
-            <!-- CANDLES COMMENTED OUT 
-            <div class="candle-area" id="candleZone">...</div>
+            <!-- CANDLES AREA (commented out) -->
+            <!--
+            <div class="candle-area" id="candleZone">
+                ...
+            </div>
             -->
 
             <div class="buttons">
@@ -282,10 +316,11 @@
         </div>
     </div>
 
+    <!-- SECTION PAGES -->
     <div id="moments" class="section">
         <button class="back" onclick="showSection('home')">← back</button>
         <div class="text-box">
-            <!-- write shakespearness stuff here -->
+            <!-- shakespearness – add your moments -->
         </div>
     </div>
 
@@ -293,6 +328,7 @@
         <button class="back" onclick="showSection('home')">← back</button>
         <h1 style="text-align:center; font-size:50px;">favs</h1>
         <div class="gallery">
+            <!-- 12 image slots – replace src with your screenshots -->
             <div class="card"><img src="images/chat1.jpg" alt="memory"><div class="caption"></div></div>
             <div class="card"><img src="images/chat2.jpg" alt="memory"><div class="caption"></div></div>
             <div class="card"><img src="images/chat3.jpg" alt="memory"><div class="caption"></div></div>
@@ -311,18 +347,19 @@
     <div id="things" class="section">
         <button class="back" onclick="showSection('home')">← back</button>
         <div class="text-box">
-            <!-- secret message -->
+            <!-- secret – write here -->
         </div>
     </div>
 
     <div id="last" class="section">
         <button class="back" onclick="showSection('home')">← back</button>
         <div class="text-box">
-            <!-- noah & elle final surprise -->
+            <!-- noah & elle – your final surprise -->
         </div>
     </div>
 
     <script>
+        // ---- PAGE NAVIGATION ----
         function showSection(id) {
             document.querySelectorAll('.section').forEach(section => {
                 section.classList.remove('active');
@@ -330,6 +367,7 @@
             document.getElementById(id).classList.add('active');
         }
 
+        // ---- MUSIC TOGGLE ----
         const music = document.getElementById('bg-music');
         const musicBtn = document.getElementById('music-toggle');
 
@@ -343,71 +381,73 @@
             }
         }
 
-        /* ========== SMART LOTUS PLACEMENT ========== */
+        // ---- CANDLE LOGIC (commented out) ----
+        // (When you're ready, uncomment the section below and the candle HTML/CSS)
+        /*
+        const candleRow = document.getElementById('candleRow');
+        const big18 = document.getElementById('big18');
+        const candlePressText = document.querySelector('.candle-press-text');
+
+        function lightCandles() { ... }
+        */
+
+        // ---- FLOATING LOTUS & SPARKLES (positioned around the title) ----
         const container = document.getElementById('flowers-container');
-        const numberOfFlowers = 15;
+        const lotusSrc = '4AD78C84-7F97-47E6-BF33-939AB322D938.jpeg';
 
-        // Grid dimensions
-        const cols = 5;
-        const rows = 4;
-        const cellWidth = 100 / cols;   // 20%
-        const cellHeight = 100 / rows;  // 25%
+        // Define lotus positions – around the edges, no overlap with center
+        const lotusPositions = [
+            // top left
+            { left: 5, top: 8 },
+            { left: 18, top: 3 },
+            // top right
+            { left: 82, top: 5 },
+            { left: 94, top: 12 },
+            // left side
+            { left: 2, top: 45 },
+            { left: 7, top: 75 },
+            // right side
+            { left: 93, top: 40 },
+            { left: 88, top: 80 },
+            // bottom left
+            { left: 10, top: 92 },
+            { left: 22, top: 95 },
+            // bottom right
+            { left: 85, top: 90 },
+            { left: 75, top: 96 },
+            // more scattered around the edges
+            { left: 30, top: 2 },
+            { left: 65, top: 3 },
+            { left: 95, top: 60 }
+        ];
 
-        // Define the "no-fly zone" for the title area (approx)
-        const titleZone = {
-            top: 5,      // start at 5% of viewport height
-            bottom: 35,  // end at 35%
-            left: 15,    // 15% from left
-            right: 85    // 85% from left
-        };
-
-        // Build a list of all cell indices that are allowed (outside title zone)
-        const allowedCells = [];
-        for (let r = 0; r < rows; r++) {
-            for (let c = 0; c < cols; c++) {
-                // Calculate cell boundaries in percentage
-                const cellLeft = c * cellWidth;
-                const cellRight = (c + 1) * cellWidth;
-                const cellTop = r * cellHeight;
-                const cellBottom = (r + 1) * cellHeight;
-
-                // Check if cell overlaps the title zone
-                const overlaps = !(cellRight < titleZone.left ||
-                                   cellLeft > titleZone.right ||
-                                   cellBottom < titleZone.top ||
-                                   cellTop > titleZone.bottom);
-
-                if (!overlaps) {
-                    allowedCells.push({ row: r, col: c });
-                }
-            }
-        }
-
-        // Shuffle allowed cells and pick the first 15
-        const shuffled = allowedCells.sort(() => Math.random() - 0.5);
-        const chosenCells = shuffled.slice(0, Math.min(numberOfFlowers, allowedCells.length));
-
-        chosenCells.forEach(cell => {
+        lotusPositions.forEach(pos => {
             const img = document.createElement('img');
-            img.src = '4AD78C84-7F97-47E6-BF33-939AB322D938.jpeg';
+            img.src = lotusSrc;
             img.alt = 'pixel lotus';
             img.classList.add('lotus-img');
-
-            // Place flower at cell center + small random offset (looks natural)
-            const baseX = (cell.col + 0.5) * cellWidth;
-            const baseY = (cell.row + 0.5) * cellHeight;
-            const offsetX = (Math.random() - 0.5) * cellWidth * 0.6;   // 60% jitter within cell
-            const offsetY = (Math.random() - 0.5) * cellHeight * 0.6;
-
-            img.style.left = baseX + offsetX + '%';
-            img.style.top = baseY + offsetY + '%';
-
-            // Slightly varied animation
-            img.style.animationDuration = (Math.random() * 3 + 3) + 's';
-            img.style.animationDelay = Math.random() * 5 + 's';
-
+            // add small random offset to feel natural, but stay in the general area
+            const offsetX = Math.random() * 4 - 2; // -2 to +2%
+            const offsetY = Math.random() * 4 - 2;
+            img.style.left = (pos.left + offsetX) + '%';
+            img.style.top = (pos.top + offsetY) + '%';
+            // each flower gets its own animation delay so they don't move in sync
+            img.style.animationDelay = Math.random() * 4 + 's';
             container.appendChild(img);
         });
+
+        // Add floating sparkle emojis (✨) as extra charm
+        const sparkleEmojis = ['✨', '⭐', '💫'];
+        for (let i = 0; i < 8; i++) {
+            const spark = document.createElement('span');
+            spark.classList.add('sparkle');
+            spark.textContent = sparkleEmojis[Math.floor(Math.random() * sparkleEmojis.length)];
+            spark.style.left = Math.random() * 100 + '%';
+            spark.style.top = Math.random() * 100 + '%';
+            spark.style.animationDelay = Math.random() * 3 + 's';
+            spark.style.fontSize = (Math.random() * 20 + 15) + 'px';
+            container.appendChild(spark);
+        }
     </script>
 </body>
 </html>
