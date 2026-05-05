@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>happy birthday ♡</title>
 
-    <!-- Aesthetic font combo -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Raleway:wght@300;500;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
@@ -17,10 +16,9 @@
             color: #2d2d2d;
             overflow-x: hidden;
             min-height: 100vh;
-            cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><text y='18' font-size='18'>❤️</text></svg>") 12 12, auto;
+            cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><text y='18' font-size='18'>♡</text></svg>") 12 12, auto;
         }
 
-        /* FLOATING FLOWERS CONTAINER */
         #flowers-container {
             position: fixed;
             top: 0;
@@ -38,16 +36,7 @@
             height: auto;
             opacity: 0.35;
             image-rendering: pixelated;
-            animation: float 4s ease-in-out infinite, twinkle 3s ease-in-out infinite;
-        }
-
-        /* Sparkle overlay (tiny floating stars) */
-        .sparkle {
-            position: absolute;
-            font-size: 20px;
-            opacity: 0.6;
-            animation: floatSparkle 2.5s ease-in-out infinite;
-            pointer-events: none;
+            animation: float 4s ease-in-out infinite;
         }
 
         @keyframes float {
@@ -56,21 +45,17 @@
             100% { transform: translateY(0px) rotate(0deg); }
         }
 
-        @keyframes twinkle {
-            0%, 100% { opacity: 0.3; }
-            50% { opacity: 0.7; }
+        /* Stars only inside noah & elle section */
+        .sparkle {
+            position: absolute;
+            pointer-events: none;
+            animation: floatSparkle 2.5s ease-in-out infinite;
         }
 
         @keyframes floatSparkle {
             0% { transform: translateY(0px) scale(0.8); opacity: 0.4; }
             50% { transform: translateY(-12px) scale(1.2); opacity: 0.9; }
             100% { transform: translateY(0px) scale(0.8); opacity: 0.4; }
-        }
-
-        /* Pulsing glow on title */
-        @keyframes softGlow {
-            0%, 100% { text-shadow: 1px 1px 4px rgba(0,0,0,0.08), 0 0 10px #ffe6ea; }
-            50% { text-shadow: 1px 1px 4px rgba(0,0,0,0.08), 0 0 20px #ffb3c6; }
         }
 
         .section {
@@ -109,19 +94,12 @@
             font-weight: 700;
             letter-spacing: 2px;
             color: #e87d8c;
-            animation: softGlow 3s ease-in-out infinite;
             margin-bottom: 0;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
             line-height: 1.2;
         }
-
-        /* No subtext – removed love-text */
-
-        /* ---- CANDLES (commented out, ready for later) ----
-        .candle-area { ... }
-        ---- END OF CANDLE CSS ---- */
 
         .buttons {
             display: grid;
@@ -130,7 +108,7 @@
             justify-content: center;
             position: relative;
             z-index: 1;
-            margin-top: 120px;   /* pushed further down for pleasing spacing */
+            margin-top: 120px;
         }
 
         .btn {
@@ -153,7 +131,7 @@
 
         .btn:hover {
             transform: translateY(-5px) scale(1.02);
-            box-shadow: 0 15px 25px rgba(255, 143, 171, 0.4), 0 0 20px #ffb3c6;
+            box-shadow: 0 15px 25px rgba(255, 143, 171, 0.4);
         }
 
         .swan {
@@ -267,6 +245,19 @@
             font-family: 'Raleway', sans-serif;
         }
 
+        /* Sparkle container inside noah & elle */
+        #sparkle-us {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+            border-radius: 30px;
+        }
+
         @media (max-width: 600px) {
             .buttons {
                 grid-template-columns: 1fr;
@@ -278,34 +269,21 @@
 </head>
 <body>
 
-    <!-- FLOATING ASSETS CONTAINER -->
-    <div id="flowers-container">
-        <!-- Lotus images will be injected here -->
-    </div>
+    <div id="flowers-container"></div>
 
-    <!-- BACKGROUND MUSIC -->
     <audio id="bg-music" loop preload="auto">
         <source src="champagne-coast.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
 
-    <!-- MUSIC TOGGLE -->
     <button id="music-toggle" class="music-btn" onclick="toggleMusic()">🎵</button>
 
     <!-- HOME -->
     <div id="home" class="section active">
         <div class="container">
             <div class="title-section">
-                <h1>HAPPY BIRTHDAY ♡ </h1>
-                <!-- "σαγαπω" removed as requested -->
+                <h1>HAPPY BIRTHDAY ❤️</h1>
             </div>
-
-            <!-- CANDLES AREA (commented out) -->
-            <!--
-            <div class="candle-area" id="candleZone">
-                ...
-            </div>
-            -->
 
             <div class="buttons">
                 <button class="btn" onclick="showSection('moments')"><span class="swan">🦢</span>shakespearness</button>
@@ -316,19 +294,19 @@
         </div>
     </div>
 
-    <!-- SECTION PAGES -->
+    <!-- shakespearness -->
     <div id="moments" class="section">
         <button class="back" onclick="showSection('home')">← back</button>
         <div class="text-box">
-            <!-- shakespearness – add your moments -->
+            <!-- add your moments -->
         </div>
     </div>
 
+    <!-- favs -->
     <div id="chaos" class="section">
         <button class="back" onclick="showSection('home')">← back</button>
         <h1 style="text-align:center; font-size:50px;">favs</h1>
         <div class="gallery">
-            <!-- 12 image slots – replace src with your screenshots -->
             <div class="card"><img src="images/chat1.jpg" alt="memory"><div class="caption"></div></div>
             <div class="card"><img src="images/chat2.jpg" alt="memory"><div class="caption"></div></div>
             <div class="card"><img src="images/chat3.jpg" alt="memory"><div class="caption"></div></div>
@@ -344,17 +322,20 @@
         </div>
     </div>
 
+    <!-- secret -->
     <div id="things" class="section">
         <button class="back" onclick="showSection('home')">← back</button>
         <div class="text-box">
-            <!-- secret – write here -->
+            <!-- write here -->
         </div>
     </div>
 
+    <!-- noah & elle (the "us" tab with stars) -->
     <div id="last" class="section">
         <button class="back" onclick="showSection('home')">← back</button>
-        <div class="text-box">
-            <!-- noah & elle – your final surprise -->
+        <div class="text-box" style="position: relative;">
+            <div id="sparkle-us"></div>
+            <!-- your final message, stars will float around this -->
         </div>
     </div>
 
@@ -381,44 +362,15 @@
             }
         }
 
-        // ---- CANDLE LOGIC (commented out) ----
-        // (When you're ready, uncomment the section below and the candle HTML/CSS)
-        /*
-        const candleRow = document.getElementById('candleRow');
-        const big18 = document.getElementById('big18');
-        const candlePressText = document.querySelector('.candle-press-text');
-
-        function lightCandles() { ... }
-        */
-
-        // ---- FLOATING LOTUS & SPARKLES (positioned around the title) ----
+        // ---- FLOATING LOTUS (evenly distributed around edges) ----
         const container = document.getElementById('flowers-container');
         const lotusSrc = '4AD78C84-7F97-47E6-BF33-939AB322D938.jpeg';
-
-        // Define lotus positions – around the edges, no overlap with center
         const lotusPositions = [
-            // top left
-            { left: 5, top: 8 },
-            { left: 18, top: 3 },
-            // top right
-            { left: 82, top: 5 },
-            { left: 94, top: 12 },
-            // left side
-            { left: 2, top: 45 },
-            { left: 7, top: 75 },
-            // right side
-            { left: 93, top: 40 },
-            { left: 88, top: 80 },
-            // bottom left
-            { left: 10, top: 92 },
-            { left: 22, top: 95 },
-            // bottom right
-            { left: 85, top: 90 },
-            { left: 75, top: 96 },
-            // more scattered around the edges
-            { left: 30, top: 2 },
-            { left: 65, top: 3 },
-            { left: 95, top: 60 }
+            { left: 5, top: 8 }, { left: 18, top: 3 }, { left: 82, top: 5 },
+            { left: 94, top: 12 }, { left: 2, top: 45 }, { left: 7, top: 75 },
+            { left: 93, top: 40 }, { left: 88, top: 80 }, { left: 10, top: 92 },
+            { left: 22, top: 95 }, { left: 85, top: 90 }, { left: 75, top: 96 },
+            { left: 30, top: 2 }, { left: 65, top: 3 }, { left: 95, top: 60 }
         ];
 
         lotusPositions.forEach(pos => {
@@ -426,27 +378,26 @@
             img.src = lotusSrc;
             img.alt = 'pixel lotus';
             img.classList.add('lotus-img');
-            // add small random offset to feel natural, but stay in the general area
-            const offsetX = Math.random() * 4 - 2; // -2 to +2%
+            const offsetX = Math.random() * 4 - 2;
             const offsetY = Math.random() * 4 - 2;
             img.style.left = (pos.left + offsetX) + '%';
             img.style.top = (pos.top + offsetY) + '%';
-            // each flower gets its own animation delay so they don't move in sync
             img.style.animationDelay = Math.random() * 4 + 's';
             container.appendChild(img);
         });
 
-        // Add floating sparkle emojis (✨) as extra charm
-        const sparkleEmojis = ['⭐'];
+        // ---- STARS ONLY INSIDE noah & elle ----
+        const sparkleUs = document.getElementById('sparkle-us');
+        const starEmojis = ['⭐'];
         for (let i = 0; i < 8; i++) {
             const spark = document.createElement('span');
             spark.classList.add('sparkle');
-            spark.textContent = sparkleEmojis[Math.floor(Math.random() * sparkleEmojis.length)];
+            spark.textContent = starEmojis[Math.floor(Math.random() * starEmojis.length)];
             spark.style.left = Math.random() * 100 + '%';
             spark.style.top = Math.random() * 100 + '%';
-            spark.style.animationDelay = Math.random() * 3 + 's';
             spark.style.fontSize = (Math.random() * 20 + 15) + 'px';
-            container.appendChild(spark);
+            spark.style.animationDelay = Math.random() * 3 + 's';
+            sparkleUs.appendChild(spark);
         }
     </script>
 </body>
