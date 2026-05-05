@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>happy birthday ♡</title>
 
-    <!-- Aesthetic font combo -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Raleway:wght@300;500;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
@@ -13,13 +12,12 @@
         body {
             margin: 0;
             font-family: 'Raleway', sans-serif;
-            background: #FFD1DC;  /* baby pink */
+            background: #FFD1DC;
             color: #2d2d2d;
             overflow-x: hidden;
             min-height: 100vh;
         }
 
-        /* FLOATING FLOWERS */
         #flowers-container {
             position: fixed;
             top: 0;
@@ -44,7 +42,7 @@
 
         @keyframes float {
             0% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-15px) rotate(3deg); }
+            50% { transform: translateY(-12px) rotate(3deg); }
             100% { transform: translateY(0px) rotate(0deg); }
         }
 
@@ -75,7 +73,7 @@
         }
 
         .title-section {
-            margin-bottom: 30px;
+            margin-bottom: 50px;  /* more breathing room */
         }
 
         h1 {
@@ -83,7 +81,7 @@
             font-size: clamp(32px, 8vw, 64px);
             font-weight: 700;
             letter-spacing: 2px;
-            color: #e87d8c;  /* new, much prettier dusty rose */
+            color: #e87d8c;
             text-shadow: 1px 1px 4px rgba(0,0,0,0.08);
             margin-bottom: 0;
             white-space: nowrap;
@@ -95,73 +93,27 @@
         .love-text {
             font-size: clamp(24px, 6vw, 32px);
             font-weight: 700;
-            color: #000;  /* black as requested */
+            color: #000;
             text-shadow: 1px 1px 6px rgba(0,0,0,0.1);
             margin-top: 8px;
             letter-spacing: 2px;
             font-style: italic;
-            font-family: 'Raleway', sans-serif;
         }
-
-        /* ---- CANDLES COMMENTED OUT (ready to be added back) ----
-        .candle-area {
-            margin: 20px 0 25px;
-        }
-        .candle-row {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            font-size: 40px;
-            transition: opacity 0.5s ease;
-        }
-        .candle-stick {
-            cursor: pointer;
-            transition: transform 0.2s;
-        }
-        .candle-stick:hover {
-            transform: scale(1.2);
-        }
-        .candle-press-text {
-            font-size: 12px;
-            font-weight: 600;
-            color: #d94e6b;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            margin-top: 8px;
-        }
-        .big-18 {
-            display: none;
-            font-size: 70px;
-            font-weight: 700;
-            color: #d94e6b;
-            text-shadow: 0 0 15px white;
-            animation: popIn 0.6s ease;
-        }
-        .big-18.show {
-            display: block;
-            animation: popIn 0.6s ease;
-        }
-        @keyframes popIn {
-            0% { transform: scale(0); opacity: 0; }
-            80% { transform: scale(1.2); opacity: 1; }
-            100% { transform: scale(1); opacity: 1; }
-        }
-        ---- END OF CANDLE CSS ---- */
 
         .buttons {
-            display: grid;
-            grid-template-columns: repeat(2, 220px);
-            gap: 30px;
-            justify-content: center;
-            position: relative;
-            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 25px;
             margin-top: 10px;
+            z-index: 1;
+            position: relative;
         }
 
         .btn {
             background: linear-gradient(145deg, #FFB3C6, #FF8FAB);
             border: none;
-            padding: 20px 18px;
+            padding: 20px 40px;
             border-radius: 50px;
             color: white;
             font-size: 16px;
@@ -173,7 +125,8 @@
             box-shadow: 0 10px 20px rgba(255, 143, 171, 0.3);
             position: relative;
             overflow: visible;
-            font-family: 'Raleway', sans-serif;
+            width: 260px;
+            text-align: center;
         }
 
         .btn:hover {
@@ -203,7 +156,6 @@
             box-shadow: 0 5px 15px rgba(255, 143, 171, 0.3);
             z-index: 10;
             transition: 0.3s;
-            font-family: 'Raleway', sans-serif;
         }
 
         .back:hover {
@@ -289,13 +241,11 @@
             backdrop-filter: blur(5px);
             position: relative;
             z-index: 1;
-            font-family: 'Raleway', sans-serif;
         }
 
         @media (max-width: 600px) {
-            .buttons {
-                grid-template-columns: 1fr;
-                gap: 20px;
+            .btn {
+                width: 220px;
             }
         }
     </style>
@@ -315,29 +265,19 @@
     <div id="home" class="section active">
         <div class="container">
             <div class="title-section">
-                <h1>HAPPY BIRTHDAY ♡ </h1>
-    
+                <h1>HAPPY BIRTHDAY ❤️</h1>
+                <p class="love-text">σαγαπω</p>
             </div>
 
-            <!-- CANDLES AREA (commented out – you can uncomment when ready) 
-            <div class="candle-area" id="candleZone">
-                <div class="candle-row" id="candleRow">
-                    <span class="candle-stick">🕯️</span>
-                    <span class="candle-stick">🕯️</span>
-                    <span class="candle-stick">🕯️</span>
-                    <span class="candle-stick">🕯️</span>
-                    <span class="candle-stick">🕯️</span>
-                </div>
-                <div class="candle-press-text">press here</div>
-                <div id="big18" class="big-18">18!!</div>
-            </div>
+            <!-- CANDLES COMMENTED OUT 
+            <div class="candle-area" id="candleZone">...</div>
             -->
 
             <div class="buttons">
-                <button class="btn" onclick="showSection('moments')"><span class="swan">🦢</span>our little moments</button>
-                <button class="btn" onclick="showSection('chaos')"><span class="swan">🦢</span>our chaos</button>
-                <button class="btn" onclick="showSection('things')"><span class="swan">🦢</span>things i love about you</button>
-                <button class="btn" onclick="showSection('last')"><span class="swan">🦢</span>One last surprise (keep for last)</button>
+                <button class="btn" onclick="showSection('moments')"><span class="swan">🦢</span>shakespearness</button>
+                <button class="btn" onclick="showSection('chaos')"><span class="swan">🦢</span>favs</button>
+                <button class="btn" onclick="showSection('things')"><span class="swan">🦢</span>secret</button>
+                <button class="btn" onclick="showSection('last')"><span class="swan">🦢</span>noah & elle</button>
             </div>
         </div>
     </div>
@@ -345,13 +285,13 @@
     <div id="moments" class="section">
         <button class="back" onclick="showSection('home')">← back</button>
         <div class="text-box">
-            <!-- write your moments here -->
+            <!-- write shakespearness stuff here -->
         </div>
     </div>
 
     <div id="chaos" class="section">
         <button class="back" onclick="showSection('home')">← back</button>
-        <h1 style="text-align:center; font-size:50px;">our chaos</h1>
+        <h1 style="text-align:center; font-size:50px;">favs</h1>
         <div class="gallery">
             <div class="card"><img src="images/chat1.jpg" alt="memory"><div class="caption"></div></div>
             <div class="card"><img src="images/chat2.jpg" alt="memory"><div class="caption"></div></div>
@@ -371,14 +311,14 @@
     <div id="things" class="section">
         <button class="back" onclick="showSection('home')">← back</button>
         <div class="text-box">
-            <!-- write here -->
+            <!-- secret message -->
         </div>
     </div>
 
     <div id="last" class="section">
         <button class="back" onclick="showSection('home')">← back</button>
         <div class="text-box">
-            <!-- your final message -->
+            <!-- noah & elle final surprise -->
         </div>
     </div>
 
@@ -403,57 +343,71 @@
             }
         }
 
-        /* ---- CANDLE LOGIC COMMENTED OUT ----
-        const candleRow = document.getElementById('candleRow');
-        const big18 = document.getElementById('big18');
-        const candlePressText = document.querySelector('.candle-press-text');
+        /* ========== SMART LOTUS PLACEMENT ========== */
+        const container = document.getElementById('flowers-container');
+        const numberOfFlowers = 15;
 
-        function lightCandles() {
-            candleRow.style.display = 'none';
-            candlePressText.style.display = 'none';
-            big18.classList.add('show');
+        // Grid dimensions
+        const cols = 5;
+        const rows = 4;
+        const cellWidth = 100 / cols;   // 20%
+        const cellHeight = 100 / rows;  // 25%
 
-            confetti({
-                particleCount: 150,
-                spread: 80,
-                origin: { y: 0.45, x: 0.5 },
-                colors: ['#ff8fab', '#ffb3c6', '#ffe066', '#a8e6cf', '#d94e6b']
-            });
-            setTimeout(() => {
-                confetti({
-                    particleCount: 100,
-                    angle: 60,
-                    spread: 70,
-                    origin: { x: 0.2, y: 0.5 },
-                    colors: ['#ff8fab', '#ffb3c6', '#ffe066']
-                });
-                confetti({
-                    particleCount: 100,
-                    angle: 120,
-                    spread: 70,
-                    origin: { x: 0.8, y: 0.5 },
-                    colors: ['#ff8fab', '#ffb3c6', '#ffe066']
-                });
-            }, 200);
+        // Define the "no-fly zone" for the title area (approx)
+        const titleZone = {
+            top: 5,      // start at 5% of viewport height
+            bottom: 35,  // end at 35%
+            left: 15,    // 15% from left
+            right: 85    // 85% from left
+        };
+
+        // Build a list of all cell indices that are allowed (outside title zone)
+        const allowedCells = [];
+        for (let r = 0; r < rows; r++) {
+            for (let c = 0; c < cols; c++) {
+                // Calculate cell boundaries in percentage
+                const cellLeft = c * cellWidth;
+                const cellRight = (c + 1) * cellWidth;
+                const cellTop = r * cellHeight;
+                const cellBottom = (r + 1) * cellHeight;
+
+                // Check if cell overlaps the title zone
+                const overlaps = !(cellRight < titleZone.left ||
+                                   cellLeft > titleZone.right ||
+                                   cellBottom < titleZone.top ||
+                                   cellTop > titleZone.bottom);
+
+                if (!overlaps) {
+                    allowedCells.push({ row: r, col: c });
+                }
+            }
         }
 
-        document.querySelectorAll('.candle-stick').forEach(candle => {
-            candle.addEventListener('click', lightCandles);
-        });
-        ---- END OF CANDLE LOGIC ---- */
+        // Shuffle allowed cells and pick the first 15
+        const shuffled = allowedCells.sort(() => Math.random() - 0.5);
+        const chosenCells = shuffled.slice(0, Math.min(numberOfFlowers, allowedCells.length));
 
-        const container = document.getElementById('flowers-container');
-        for (let i = 0; i < 15; i++) {
+        chosenCells.forEach(cell => {
             const img = document.createElement('img');
             img.src = '4AD78C84-7F97-47E6-BF33-939AB322D938.jpeg';
             img.alt = 'pixel lotus';
             img.classList.add('lotus-img');
-            img.style.left = Math.random() * 100 + '%';
-            img.style.top = Math.random() * 100 + '%';
+
+            // Place flower at cell center + small random offset (looks natural)
+            const baseX = (cell.col + 0.5) * cellWidth;
+            const baseY = (cell.row + 0.5) * cellHeight;
+            const offsetX = (Math.random() - 0.5) * cellWidth * 0.6;   // 60% jitter within cell
+            const offsetY = (Math.random() - 0.5) * cellHeight * 0.6;
+
+            img.style.left = baseX + offsetX + '%';
+            img.style.top = baseY + offsetY + '%';
+
+            // Slightly varied animation
             img.style.animationDuration = (Math.random() * 3 + 3) + 's';
             img.style.animationDelay = Math.random() * 5 + 's';
+
             container.appendChild(img);
-        }
+        });
     </script>
 </body>
 </html>
