@@ -245,7 +245,6 @@
             font-family: 'Raleway', sans-serif;
         }
 
-        /* Sparkle container inside noah & elle */
         #sparkle-us {
             position: absolute;
             top: 0;
@@ -282,7 +281,7 @@
     <div id="home" class="section active">
         <div class="container">
             <div class="title-section">
-                <h1>HAPPY BIRTHDAY ❤️</h1>
+                <h1>HAPPY BIRTHDAY ♡</h1>
             </div>
 
             <div class="buttons">
@@ -298,7 +297,7 @@
     <div id="moments" class="section">
         <button class="back" onclick="showSection('home')">← back</button>
         <div class="text-box">
-            <!-- add your moments -->
+            <!-- add your moments here -->
         </div>
     </div>
 
@@ -307,18 +306,17 @@
         <button class="back" onclick="showSection('home')">← back</button>
         <h1 style="text-align:center; font-size:50px;">favs</h1>
         <div class="gallery">
-            <div class="card"><img src="images/chat1.jpg" alt="memory"><div class="caption"></div></div>
-            <div class="card"><img src="images/chat2.jpg" alt="memory"><div class="caption"></div></div>
-            <div class="card"><img src="images/chat3.jpg" alt="memory"><div class="caption"></div></div>
-            <div class="card"><img src="images/chat4.jpg" alt="memory"><div class="caption"></div></div>
-            <div class="card"><img src="images/chat5.jpg" alt="memory"><div class="caption"></div></div>
-            <div class="card"><img src="images/chat6.jpg" alt="memory"><div class="caption"></div></div>
-            <div class="card"><img src="images/chat7.jpg" alt="memory"><div class="caption"></div></div>
-            <div class="card"><img src="images/chat8.jpg" alt="memory"><div class="caption"></div></div>
-            <div class="card"><img src="images/chat9.jpg" alt="memory"><div class="caption"></div></div>
-            <div class="card"><img src="images/chat10.jpg" alt="memory"><div class="caption"></div></div>
-            <div class="card"><img src="images/chat11.jpg" alt="memory"><div class="caption"></div></div>
-            <div class="card"><img src="images/chat12.jpg" alt="memory"><div class="caption"></div></div>
+            <!-- YOUR 10 REAL IMAGES (filenames provided) -->
+            <div class="card"><img src="A78E8450-4611-4264-9DAD-045B701E8B4A.jpeg" alt="pic 1"><div class="caption"></div></div>
+            <div class="card"><img src="A92DB9BB-EFFA-4684-8137-BE894A070D95.jpeg" alt="pic 2"><div class="caption"></div></div>
+            <div class="card"><img src="9A58F893-0BE6-4060-9946-9DF8AC182A6E.jpeg" alt="pic 3"><div class="caption"></div></div>
+            <div class="card"><img src="76CE6A3A-CB63-473D-A95C-5193BF2E31F8.jpeg" alt="pic 4"><div class="caption"></div></div>
+            <div class="card"><img src="5E7332BC-DC41-4955-916D-BDF2202ABE89.jpeg" alt="pic 5"><div class="caption"></div></div>
+            <div class="card"><img src="570486EA-8256-42E1-8000-6F2DB6BE2B5C.jpeg" alt="pic 6"><div class="caption"></div></div>
+            <div class="card"><img src="55B0414A-3316-499A-815F-15F9356A9F82.jpeg" alt="pic 7"><div class="caption"></div></div>
+            <div class="card"><img src="2912C5D5-4752-4B09-8179-C35E7CD5CB50.jpeg" alt="pic 8"><div class="caption"></div></div>
+            <div class="card"><img src="08052BC3-DBB3-482B-94D4-78E0EAFC72E0.jpeg" alt="pic 9"><div class="caption"></div></div>
+            <div class="card"><img src="06C4954B-68EC-477C-9641-FFE58042D90A.jpeg" alt="pic 10"><div class="caption"></div></div>
         </div>
     </div>
 
@@ -326,7 +324,7 @@
     <div id="things" class="section">
         <button class="back" onclick="showSection('home')">← back</button>
         <div class="text-box">
-            <!-- write here -->
+            <!-- write your secret here -->
         </div>
     </div>
 
@@ -335,7 +333,7 @@
         <button class="back" onclick="showSection('home')">← back</button>
         <div class="text-box" style="position: relative;">
             <div id="sparkle-us"></div>
-            <!-- your final message, stars will float around this -->
+            <!-- your final message surrounded by floating stars -->
         </div>
     </div>
 
@@ -388,7 +386,7 @@
 
         // ---- STARS ONLY INSIDE noah & elle ----
         const sparkleUs = document.getElementById('sparkle-us');
-        const starEmojis = ['⭐'];
+        const starEmojis = ['✨', '⭐', '💫'];
         for (let i = 0; i < 8; i++) {
             const spark = document.createElement('span');
             spark.classList.add('sparkle');
