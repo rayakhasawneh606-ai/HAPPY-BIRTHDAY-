@@ -286,6 +286,28 @@
                 margin-top: 80px;
             }
         }
+        .elle-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 25px;
+}
+.elle-card {
+    background: #FDE2E4;
+    padding: 10px;
+    border-radius: 18px;
+    box-shadow: 0 8px 18px rgba(255, 143, 171, 0.15);
+    max-width: 160px;
+    text-align: center;
+}
+.elle-card img {
+    width: 100%;
+    border-radius: 14px;
+    display: block;
+    object-fit: cover;
+    aspect-ratio: 1 / 1;   /* makes them square, adjust if needed */
+}
     </style>
 </head>
 <body>
@@ -416,13 +438,20 @@
                 <source src="snaptik_7610123345836707094_v3 (1).mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
-            <img src="1323D911-C0D0-476F-8E8E-498099B3C372.jpeg" alt="photo 1">
-
-<img src="3AAEFA44-CD5A-409C-AFB5-80DE5E2AE67D.jpeg" alt="photo 2">
-
-<img src="BD3A33B1-999B-40CA-9213-F108BBD9A439.jpeg" alt="photo 3">
-
-<img src="F7697EE3-237A-4FD1-912B-AEEE593AE496.jpeg" alt="photo 4">
+            <div class="elle-gallery">
+    <div class="elle-card">
+        <img src="1323D911-C0D0-476F-8E8E-498099B3C372.jpeg" alt="photo 1">
+    </div>
+    <div class="elle-card">
+        <img src="3AAEFA44-CD5A-409C-AFB5-80DE5E2AE67D.jpeg" alt="photo 2">
+    </div>
+    <div class="elle-card">
+        <img src="BD3A33B1-999B-40CA-9213-F108BBD9A439.jpeg" alt="photo 3">
+    </div>
+    <div class="elle-card">
+        <img src="F7697EE3-237A-4FD1-912B-AEEE593AE496.jpeg" alt="photo 4">
+    </div>
+</div>
             <p style="margin-top:15px; font-style:italic;">i love you</p>
         </div>
     </div>
