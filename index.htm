@@ -308,6 +308,29 @@
     object-fit: cover;
     aspect-ratio: 1 / 1;   /* makes them square, adjust if needed */
 }
+   /* Unicorn background for shakespearness */
+#unicorn-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+    border-radius: 30px;
+}
+.unicorn {
+    position: absolute;
+    font-size: 30px;
+    opacity: 0.3;
+    animation: floatUnicorn 6s ease-in-out infinite;
+}
+@keyframes floatUnicorn {
+    0% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-18px) rotate(5deg); }
+    100% { transform: translateY(0px) rotate(0deg); }
+}     
     </style>
 </head>
 <body>
@@ -341,6 +364,10 @@
     <div id="moments" class="section">
         <button class="back" onclick="showSection('home')">← back</button>
         <div class="text-box">
+            <div class="text-box">
+    <div id="unicorn-bg"></div>
+    <!-- your message stays here -->
+
             HAPPY BIRTHDAY MAYAAAAA UR LITERALLY MY FAVORITE PERSON EVER I LOVE YOU SO MUCH. UR 18 NOW HOLY SHITTTT I KNOW YOU HATE GETTING OLDER BUT UR STILL SO YOUNG LIKE 18 IS ACTUALLY CRAZY TO THINK ABT LOWKEY.<br><br>
             i genuinely dont even think i can fit everything i wanna say in one paragraph because there is SO much i wanna say ab u and us and everything. first off im actually so glad we met because tbh i wouldnt even be on instagram rn if it wasnt for you and that alone is crazy to think abt because now talking to you is literally one of the biggest parts of my day. like i genuinely look forward to seeing ur texts every single day. i love talking to you sm. whether its random conversations deep talks stupid jokes or us just sitting there sending nonsense for hours it never gets boring w u. and i love how when we're bored we ALWAYS end up finding smth to do together. like we're constantly playing smth whether its plato roblox random games or literally anything we can find. everything somehow becomes fun when its w you even the dumbest things ever.<br><br>
             and omg our drawing competitions are actually one of my favorite things ever even tho half the time they end up looking horrible but urs was adorable . and when we made pizza together when u were upset i still think abt that because idk it was just rlly nice and i just always wanna make u feel better whenever ur sad. like genuinely whenever ur upset all i wanna do is cheer u up somehow because seeing u sad actually affects me sm and u mean way too much to me for me to just not care. and i still think its funny how we lowkey became close because of pfs. like id always dm u asking for pfp help and then you'd absolutely COOK my old pfps every single time. but somehow thats literally one of the reasons we became close and now ur one of the most important people in my life which is insane to think abt.<br><br>
@@ -348,6 +375,7 @@
             and also genuinely thank you for everything youve done for me till now because youve helped me through way more than u probably realize. every single time im sad somehow u always know how to cheer me up and make things feel okay again. like there have been so many moments where i felt horrible or stressed or upset and then id talk to you and suddenly everything felt lighter again. u genuinely became one of the biggest comfort people in my life and im so grateful for that. i dont think i say it enough but i appreciate every single thing youve done for me. all the deep conversations weve had about life and everything else genuinely mean sm to me. every time u listened to me and every time u made me laugh when i needed it most all of it means a lot to me. and honestly i dont think id be the same person rn without u because youve become such a huge part of my everyday life.<br><br>
             and tbh i dont think im even fully me anymore without you. like noah without maya just doesnt even sound right atp because youve become such an important part of who i am and my happiness and my days in general. youve helped me more than u know and ill always be grateful for that. u genuinely make me the happiest person ever and every single time i see ur notification pop up i smile like actually. u make my days sm better without even trying and i dont think u realize how much u mean to me sometimes. like waking up and talking to you then ending the day talking to you too is genuinely my favorite thing ever.<br><br>
             and i rlly hope u liked the website because i genuinely wanted to make smth special for u. RAYA HELPED A LOTTT but still. u deserve smth nice because ur genuinely one of the best people ive ever met. anyway happy birthday again maya. i love you so much and i genuinely hope this year is amazing for u because u deserve that and more and you're genuinely the most perfect person i've met
+        </div>
         </div>
     </div>
 
@@ -520,6 +548,20 @@
             spark.style.animationDelay = Math.random() * 3 + 's';
             sparkleUs.appendChild(spark);
         }
+// Unicorns in shakespearness
+const unicornBg = document.getElementById('unicorn-bg');
+for (let i = 0; i < 10; i++) {
+    const u = document.createElement('span');
+    u.classList.add('unicorn');
+    u.textContent = '🦄';
+    u.style.left = Math.random() * 100 + '%';
+    u.style.top = Math.random() * 100 + '%';
+    u.style.fontSize = (Math.random() * 20 + 25) + 'px';
+    u.style.animationDelay = Math.random() * 5 + 's';
+    unicornBg.appendChild(u);
+}
+
+        
     </script>
 </body>
 </html>
